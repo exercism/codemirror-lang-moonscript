@@ -19,10 +19,6 @@ The repo comes with a tiny grammar that shows some basic grammar that you can tw
 - Yarn: `yarn add @exercism/codemirror-lang-moonscript`
 - Bun: `bun add @exercism/codemirror-lang-moonscript`
 
-## Prerequisites
-
-- [Bun](https://bun.sh/)
-
 ## Resources
 
 - [CodeMirror](https://codemirror.net/docs/)
@@ -55,11 +51,11 @@ The repo is structured as follows:
 
 ## Setup
 
-Run `bun install` to install all dependencies.
+Run `npm install` to install all dependencies.
 
 ## Developing
 
-To help with development, run `bun run dev`.
+To help with development, run `npm run dev`.
 This will start a [Vite](https://vite.dev/) dev server (usually at http://localhost:5173/) that renders the `index.html` file.
 The `#editor` element gets populated with some sample source code of your choosing and then it will get transformed by the grammar defined in `src/syntax.grammar`.
 Any changes to the grammar will auto-refresh the dev server's rendered contents.
@@ -67,7 +63,7 @@ Any changes to the grammar will auto-refresh the dev server's rendered contents.
 ## Testing
 
 The `test/cases` directory contains the tests files.
-Run `bun test` to run these tests.
+Run `npm run test` to run these tests.
 
 Note: test (case) files should be relatively small and focus on a single aspect of a grammar.
 
