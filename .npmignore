@@ -1,0 +1,11 @@
+/.github/
+/bin/
+/CODE_OF_CONDUCT.md
+/bun.lockb
+/index.html
+/src/
+/test/
+/*.tgz
+/rollup.config.js
+/tsconfig.json
+/vite.config.js

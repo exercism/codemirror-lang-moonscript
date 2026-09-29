@@ -1,0 +1,38 @@
+{
+  "name": "@exercism/codemirror-lang-moonscript",
+  "version": "0.0.1",
+  "description": "MoonScript language support for CodeMirror",
+  "scripts": {
+    "prepare": "bun run rollup -c",
+    "dev": "vite"
+  },
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "exports": {
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
+  },
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@codemirror/language": "^6.10.1",
+    "@lezer/highlight": "^1.2.0",
+    "@lezer/lr": "^1.4.0"
+  },
+  "devDependencies": {
+    "@lezer/generator": "^1.7.0",
+    "@types/bun": "^1.1.14",
+    "codemirror": "^6.0.1",
+    "rollup": "^4.18.0",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-ts": "^3.4.5",
+    "typescript": "^5.4.5",
+    "unplugin-lezer": "^1.0.1",
+    "vite": "^5.4.11"
+  },
+  "license": "MIT"
+}

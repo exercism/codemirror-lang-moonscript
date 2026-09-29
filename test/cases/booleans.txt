@@ -1,0 +1,8 @@
+# Booleans
+
+true
+false
+
+==>
+
+Program(BooleanLiteral, BooleanLiteral)

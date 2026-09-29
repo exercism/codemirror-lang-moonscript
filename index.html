@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MoonScript playground</title>
+  </head>
+  <body>
+    <div id="editor"></div>
+    <script type="module">
+            import { EditorView, basicSetup } from "codemirror";
+            import { moonscript } from "./src/index.ts";
+
+            const doc = `
+      # Booleans
+
+      true
+      false
+
+      # Integers
+
+      5
+      1000
+
+      # Floating-point numbers
+
+      3.2
+      1.134123
+      `
+
+            new EditorView({
+              doc: doc,
+              extensions: [basicSetup, moonscript()],
+              parent: document.querySelector("#editor"),
+            });
+    </script>
+  </body>
+</html>

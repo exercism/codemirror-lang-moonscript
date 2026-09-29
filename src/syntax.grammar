@@ -1,0 +1,30 @@
+@top Program { expression* }
+
+@skip { LineComment | whitespace }
+
+expression {
+  literal
+}
+
+literal {
+  BooleanLiteral |
+  IntegerLiteral |  
+  FloatingPointLiteral
+}
+
+@tokens {
+  whitespace { @whitespace+ }  
+  digit { @digit }
+
+  IntegerLiteral { digit+ }
+
+  FloatingPointLiteral { digit+ "." digit+ }
+
+  BooleanLiteral { "true" | "false" }
+
+  @precedence { FloatingPointLiteral, IntegerLiteral }
+
+  LineComment { "//" ![\n]* }
+}
+
+@detectDelim
