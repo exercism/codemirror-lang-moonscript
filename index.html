@@ -3,36 +3,129 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MoonScript playground</title>
+    <title>MoonScript Language Support - CodeMirror 6 Playground</title>
+    <meta name="description" content="Full-featured CodeMirror 6 language support plugin for MoonScript featuring syntax highlighting, autocomplete, lint diagnostics, and code folding." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./demo/style.css" />
   </head>
   <body>
-    <div id="editor"></div>
-    <script type="module">
-            import { EditorView, basicSetup } from "codemirror";
-            import { moonscript } from "./src/index.ts";
+    <div id="app" class="app-container">
+      <!-- Navbar -->
+      <header class="navbar">
+        <div class="brand">
+          <div class="logo">🌙</div>
+          <div>
+            <h1>codemirror-lang-moonscript</h1>
+            <p class="subtitle">Full MoonScript Language Support for CodeMirror 6</p>
+          </div>
+        </div>
+        <div class="nav-badges">
+          <span class="badge badge-primary">v1.0.0</span>
+          <span class="badge badge-success">CM6 Ready</span>
+        </div>
+      </header>
 
-            const doc = `
-      # Booleans
+      <!-- Main Studio Layout -->
+      <main class="studio-layout">
+        <!-- Sidebar Controls -->
+        <aside class="sidebar">
+          <div class="control-group">
+            <h3>Code Snippet Presets</h3>
+            <div class="preset-buttons">
+              <button id="preset-oop" class="btn btn-preset active">Classes & OOP</button>
+              <button id="preset-switch" class="btn btn-preset">Pattern Matching</button>
+              <button id="preset-loops" class="btn btn-preset">Loops & Tables</button>
+              <button id="preset-async" class="btn btn-preset">Coroutines & Math</button>
+              <button id="preset-error" class="btn btn-preset btn-danger">Syntax Error Demo</button>
+            </div>
+          </div>
 
-      true
-      false
+          <div class="control-group">
+            <h3>Extension Settings</h3>
+            <label class="toggle-label">
+              <input type="checkbox" id="toggle-linter" checked />
+              <span class="toggle-custom"></span>
+              <span>Syntax Diagnostic Linter</span>
+            </label>
+            <label class="toggle-label">
+              <input type="checkbox" id="toggle-autocomplete" checked />
+              <span class="toggle-custom"></span>
+              <span>Smart Autocompletion</span>
+            </label>
+            <label class="toggle-label">
+              <input type="checkbox" id="toggle-fold" checked />
+              <span class="toggle-custom"></span>
+              <span>Indentation Block Folding</span>
+            </label>
+            <label class="toggle-label">
+              <input type="checkbox" id="toggle-linenumbers" checked />
+              <span class="toggle-custom"></span>
+              <span>Line Numbers Gutter</span>
+            </label>
+          </div>
 
-      # Integers
+          <div class="control-group">
+            <h3>Capabilities</h3>
+            <ul class="feature-list">
+              <li>✨ MoonScript Lexical Highlighting</li>
+              <li>⚡ Autocompletion (Keywords & Snippets)</li>
+              <li>📐 Context Indentation & Folding</li>
+              <li>🔍 Diagnostics & Bracket Matching</li>
+              <li>💬 Line & Block Commenting</li>
+            </ul>
+          </div>
+        </aside>
 
-      5
-      1000
+        <!-- Editor & Output Area -->
+        <section class="workspace-area">
+          <div class="panel editor-panel">
+            <div class="panel-header">
+              <div class="panel-title-group">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="panel-title">main.moon</span>
+              </div>
+              <div class="panel-actions">
+                <button id="btn-format" class="btn btn-sm">Auto-Format Indent</button>
+                <button id="btn-clear" class="btn btn-sm btn-ghost">Clear</button>
+              </div>
+            </div>
+            <div id="editor-container"></div>
+          </div>
 
-      # Floating-point numbers
+          <!-- Diagnostics Console Panel -->
+          <div class="panel console-panel">
+            <div class="panel-header">
+              <span class="panel-title">Diagnostics & Status</span>
+              <span id="diagnostic-count" class="badge badge-neutral">0 issues</span>
+            </div>
+            <div id="diagnostics-log" class="console-body">
+              <p class="console-placeholder">No syntax errors detected. Type invalid MoonScript to see real-time linter diagnostics.</p>
+            </div>
+          </div>
+        </section>
+      </main>
 
-      3.2
-      1.134123
-      `
+      <!-- Status Footer -->
+      <footer class="footer">
+        <div class="status-info">
+          <span>Language: <strong>MoonScript</strong></span>
+          <span id="cursor-pos">Line 1, Column 1</span>
+        </div>
+        <div class="footer-links">
+          <a href="https://codemirror.net/" target="_blank" rel="noreferrer">CodeMirror 6</a>
+          <span>•</span>
+          <a href="https://moonscript.org/" target="_blank" rel="noreferrer">MoonScript Spec</a>
+        </div>
+      </footer>
+    </div>
 
-            new EditorView({
-              doc: doc,
-              extensions: [basicSetup, moonscript()],
-              parent: document.querySelector("#editor"),
-            });
-    </script>
+    <script type="module" src="./demo/main.ts"></script>
   </body>
 </html>
