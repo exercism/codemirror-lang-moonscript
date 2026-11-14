@@ -1,11 +1,20 @@
 {
   "compilerOptions": {
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
     "strict": true,
-    "target": "es6",
-    "module": "es2020",
-    "newLine": "lf",
-    "declaration": true,
-    "moduleResolution": "node"
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitReturns": true,
+    "declaration": true
   },
-  "include": ["src/*.ts"]
+  "include": ["src", "demo"]
 }
