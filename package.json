@@ -1,7 +1,16 @@
 {
-  "name": "codemirror-lang-moonscript",
+  "name": "@exercism/codemirror-lang-moonscript",
   "version": "1.0.0",
-  "description": "CodeMirror 6 language support for MoonScript",
+  "description": "MoonScript language support for CodeMirror 6",
+  "author": {
+    "name": "Glenn Jackman",
+    "email": "glenn.jackman@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/exercism/codemirror-lang-moonscript"
+  },
+  "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -25,8 +34,10 @@
     "syntax-highlighting",
     "editor"
   ],
-  "author": "",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@codemirror/autocomplete": "^6.18.0",
     "@codemirror/language": "^6.10.1",
